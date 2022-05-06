@@ -229,7 +229,7 @@ func (p *Provider) loadConfiguration(ctx context.Context, certInfo *connectCert,
 			p.Namespace = catalogCriteria.Namespace
 
 			configurationChan <- dynamic.Message{
-				ProviderName:  fmt.Sprintf("consulcatalog-%s", catalogNameSuffix),
+				ProviderName:  provider.Normalize(fmt.Sprintf("consulcatalog-%s", catalogNameSuffix)),
 				Configuration: p.buildConfiguration(ctx, data, certInfo),
 			}
 		}
